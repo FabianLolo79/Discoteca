@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\lib\\bootbox\\bootbox.all.js",
+      "PackagePath": "staticwebassets\\lib\\bootbox\\bootbox.all.js"
+    },
+    {
       "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

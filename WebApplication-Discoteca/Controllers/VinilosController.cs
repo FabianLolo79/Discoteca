@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication_Discoteca.Models;
 using WebApplication_Discoteca.Models.ViewModels;
 using WebApplication_Discoteca.Services;
 
@@ -11,20 +12,25 @@ namespace WebApplication_Discoteca.Controllers
         public ActionResult Index()
         {
             VinilosService vinilosService = new VinilosService();
-            // TO DO: tengo que recuperar el listado de vinilos..
+            List<Vinilo> vinilos = vinilosService.RecuperarListadoDeVinilos();
 
             List<ViniloViewModel> vinilosViewModel = new List<ViniloViewModel>();
 
-            ViniloViewModel viniloViewModel1 = new ViniloViewModel();
-            viniloViewModel1.Id = 1;
-            viniloViewModel1.Titulo_disco = "El bum bum";
-            viniloViewModel1.Nombre_artista = "La mona";
-            viniloViewModel1.Ano = 1992;
-            viniloViewModel1.Canciones = "1.Beso a beso, 2.el bum bum, 3.la pupera de maria";
-            viniloViewModel1.Precio = 1000;
-            viniloViewModel1.Estado = "Con rasgos de mojadura en la funda o caja";
-            viniloViewModel1.FechaAlta = DateTime.Now;
-            vinilosViewModel.Add(viniloViewModel1);
+            foreach (Vinilo v in vinilos)
+            {
+                vinilosViewModel.Add(new ViniloViewModel()
+                {
+                    Id = v.Id,
+                    Titulo_disco = v.Titulo_disco,
+                    Nombre_artista = v.Nombre_artista,
+                    Ano = v.Ano,
+                    Canciones = v.Canciones,
+                    Precio = v.Precio,
+                    Estado = v.Estado,
+                    FechaAlta = v.FechaAlta,
+                });                    
+                    
+            }
 
             return View(vinilosViewModel);
         }
@@ -33,17 +39,16 @@ namespace WebApplication_Discoteca.Controllers
         public ActionResult Details(int id)
         {
             VinilosService vinilosService = new VinilosService();
-            // TO DO: tengo que recuperar un vinilo...
-
+            Vinilo vinilo = vinilosService.RecuperarVinilo(id);
             ViniloViewModel viniloViewModel = new ViniloViewModel();
             viniloViewModel.Id = id;
-            viniloViewModel.Titulo_disco = "El bum bum";
-            viniloViewModel.Nombre_artista = "La mona";
-            viniloViewModel.Ano = 1992;
-            viniloViewModel.Canciones = "1.Beso a beso, 2.el bum bum, 3.la pupera de maria";
-            viniloViewModel.Precio = 1000;
-            viniloViewModel.Estado = "Con rasgos de mojadura en la funda o caja";
-            viniloViewModel.FechaAlta = DateTime.Now;
+            viniloViewModel.Titulo_disco = vinilo.Titulo_disco;
+            viniloViewModel.Nombre_artista = vinilo.Nombre_artista;
+            viniloViewModel.Ano = vinilo.Ano;
+            viniloViewModel.Canciones = vinilo.Canciones;
+            viniloViewModel.Precio = vinilo.Precio;
+            viniloViewModel.Estado = vinilo.Estado;
+            viniloViewModel.FechaAlta = vinilo.FechaAlta;
 
             return View(viniloViewModel);
         }
@@ -61,8 +66,17 @@ namespace WebApplication_Discoteca.Controllers
         {
             if(ModelState.IsValid)
             {
-                // TO DO hacer el alta en la base de datos....
-                // VUELVE AL LISTADO DE RECLAMO
+                VinilosService viniloService = new VinilosService();
+                Vinilo vinilo = new Vinilo();
+                vinilo.Titulo_disco = viniloViewModel.Titulo_disco;
+                vinilo.Nombre_artista = viniloViewModel.Nombre_artista;
+                vinilo.Ano = viniloViewModel.Ano;
+                vinilo.Canciones = viniloViewModel.Canciones;
+                vinilo.Precio = viniloViewModel.Precio;
+                vinilo.Estado = viniloViewModel.Estado;
+                vinilo.FechaAlta = DateTime.Now;
+
+                viniloService.AltaDeVinilo(vinilo);
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -76,20 +90,45 @@ namespace WebApplication_Discoteca.Controllers
         // GET: VinilosController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            VinilosService vinilosService = new VinilosService();
+            Vinilo vinilo = vinilosService.RecuperarVinilo(id);
+            ViniloViewModel viniloViewModel = new ViniloViewModel();
+            viniloViewModel.Id = id;
+            viniloViewModel.Titulo_disco = vinilo.Titulo_disco;
+            viniloViewModel.Nombre_artista = vinilo.Nombre_artista;
+            viniloViewModel.Ano = vinilo.Ano;
+            viniloViewModel.Canciones = vinilo.Canciones;
+            viniloViewModel.Precio = vinilo.Precio;
+            viniloViewModel.Estado = vinilo.Estado;
+            viniloViewModel.FechaAlta = vinilo.FechaAlta;
+
+            return View(viniloViewModel);
         }
 
         // POST: VinilosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, ViniloViewModel viniloViewModel)
         {
-            try
+            if (ModelState.IsValid)
             {
+
+                VinilosService vinilosService = new VinilosService();
+                Vinilo vinilo = vinilosService.RecuperarVinilo(id);
+                vinilo.Id = id;
+                vinilo.Titulo_disco = viniloViewModel.Titulo_disco;
+                vinilo.Nombre_artista = viniloViewModel.Nombre_artista;
+                vinilo.Ano = viniloViewModel.Ano;
+                vinilo.Canciones = viniloViewModel.Canciones;
+                vinilo.Precio = viniloViewModel.Precio;
+                vinilo.Estado = viniloViewModel.Estado;
+                VinilosService.ActualizarVinilo(vinilo);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            else
             {
+                // HAY ALGUN ERROR DE VALIDACION.... VUELVO A MOSTRAR EL FORMULARIO
                 return View();
             }
         }
@@ -97,22 +136,11 @@ namespace WebApplication_Discoteca.Controllers
         // GET: VinilosController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
+            // TO DO: borrar de la base de datos el reclamo
+            VinilosService vinilosService = new VinilosService();
+            vinilosService.BorrarVinilo(id);
 
-        // POST: VinilosController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

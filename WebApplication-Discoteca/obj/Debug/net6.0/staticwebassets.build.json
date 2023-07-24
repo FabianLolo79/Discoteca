@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o4uXb6mEQQaplqPw5ZtLtOrtv9E1CUZOpW7KFpCXkxg=",
+  "Hash": "V2tQKYnzicj4Cd93OTNWZtz29NdbmhYEI01a+rR9uf4=",
   "Source": "WebApplication-Discoteca",
   "BasePath": "_content/WebApplication-Discoteca",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\lib\\bootbox\\bootbox.all.js",
+      "SourceId": "WebApplication-Discoteca",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\",
+      "BasePath": "_content/WebApplication-Discoteca",
+      "RelativePath": "lib/bootbox/bootbox.all.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootbox\\bootbox.all.js"
     },
     {
       "Identity": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

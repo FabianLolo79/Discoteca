@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication_Discoteca.Models.ViewModels
 {
@@ -13,27 +14,35 @@ namespace WebApplication_Discoteca.Models.ViewModels
         private string estado;
         private DateTime fechaAlta;
 
+        [DisplayName("Id autogenerado")]
         public long Id { get => id; set => id = value; }
-        
+
+        [DisplayName("Título")]
         [Required]
         public string Titulo_disco { get => titulo_disco; set => titulo_disco = value; }
 
+        [DisplayName("Artista")]
         [Required]
         public string Nombre_artista { get => nombre_artista; set => nombre_artista = value; }
 
+        [DisplayName("Año")]
         [Required]
         public int Ano { get => ano; set => ano = value; }
 
+        [DisplayName("Canciones")]
         [Required]
         [StringLength(1000)]
         public string Canciones { get => canciones; set => canciones = value; }
 
+        [DisplayName("Precio")]
         [Required]
         public float Precio { get => precio; set => precio = value; }
 
+        [DisplayName("Estado")]
         [Required]
         public string Estado { get => estado; set => estado = value; }
 
+        [DisplayName("Fecha de alta")]
         [Required]
         public DateTime FechaAlta { get => fechaAlta; set => fechaAlta=value; }
     }

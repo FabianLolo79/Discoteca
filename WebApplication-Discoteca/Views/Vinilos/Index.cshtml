@@ -69,9 +69,20 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id  }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, 
+                    new { onclick="borrarVinilo(this); return false;"})
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<script>
+    function borrarVinilo(linkActual) {
+        bootbox.confirm('Borramos el vinilo?', function(resultado) {
+            if (resultado == true) {
+                window.location = linkActual.href;
+            }
+        });
+    }
+</script>

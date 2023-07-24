@@ -1,17 +1,22 @@
 ﻿@model WebApplication_Discoteca.Models.ViewModels.ViniloViewModel
 
 @{
-    ViewData["Title"] = "Alta nuevo vinilo";
+    ViewData["Title"] = "Edir datos del vinilo";
 }
 
-<h2>Alta nuevo vinilo</h2>
+<h2>Editar datos del vinilo</h2>
 
 <!--<h4>ViniloViewModel</h4>-->
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" readonly/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Titulo_disco" class="control-label"></label>
                 <input asp-for="Titulo_disco" class="form-control" />
@@ -42,8 +47,9 @@
                 <input asp-for="Estado" class="form-control" />
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary mt-2 pt-1" />
+                <input type="submit" value="Save" class="btn btn-primary mt-2 pt-1"/>
             </div>
         </form>
     </div>
