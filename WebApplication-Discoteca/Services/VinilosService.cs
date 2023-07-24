@@ -86,6 +86,38 @@ namespace WebApplication_Discoteca.Services
             return vinilos;
         }
 
+        //sobrecarga del método para el buscador
+        public List<Vinilo> RecuperarListadoDeVinilos(string textoBuscar)
+        {
+            List<Vinilo> vinilos = new List<Vinilo>();
+            MySqlConnection connection = DbUtils.RecuperarConnection();
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT id, titulo_disco, nombre_artista, año, canciones, precio, estado, fechaAlta FROM " +
+                " vinilos_lp WHERE titulo_disco LIKE @textoBuscar OR nombre_artista LIKE @textoBuscar OR" +
+                " año LIKE @textoBuscar OR precio LIKE @textoBuscar";
+            string parametroTextoBuscar = "%" + textoBuscar + "%";
+            command.Parameters.AddWithValue("@textoBuscar", parametroTextoBuscar);
+            MySqlDataReader dr = command.ExecuteReader();
+            Vinilo vinilo = null;
+            while (dr.Read())
+            {
+                vinilo = new Vinilo();
+                vinilo.Id = dr.GetInt64("id");
+                vinilo.Titulo_disco = dr.GetString("titulo_disco");
+                vinilo.Nombre_artista = dr.GetString("nombre_artista");
+                vinilo.Ano = dr.GetInt32("año");
+                vinilo.Canciones = dr.GetString("canciones");
+                vinilo.Precio = dr.GetFloat("precio");
+                vinilo.Estado = dr.GetString("estado");
+                vinilo.FechaAlta = dr.GetDateTime("fechaALta");
+                vinilos.Add(vinilo);
+            }
+
+            connection.Close();
+
+            return vinilos;
+        }
+
         public static void ActualizarVinilo(Vinilo vinilo)
         {
             MySqlConnection connection = DbUtils.RecuperarConnection();

@@ -8,6 +8,31 @@ namespace WebApplication_Discoteca.Controllers
 {
     public class VinilosController : Controller
     {
+
+        public ActionResult Buscar(string textoBuscar)
+        {
+            VinilosService vinilosService = new VinilosService();
+            List<Vinilo> vinilos = vinilosService.RecuperarListadoDeVinilos(textoBuscar);
+
+            List<ViniloViewModel> vinilosViewModel = new List<ViniloViewModel>();
+            foreach (Vinilo v in vinilos)
+            {
+                vinilosViewModel.Add(new ViniloViewModel()
+                {
+                    Id = v.Id,
+                    Titulo_disco = v.Titulo_disco,
+                    Nombre_artista = v.Nombre_artista,
+                    Ano = v.Ano,
+                    Canciones = v.Canciones,
+                    Precio = v.Precio,
+                    Estado = v.Estado,
+                    FechaAlta = v.FechaAlta,
+                });
+            }
+            ViewBag.textoBuscar = textoBuscar;
+            return View("Index", vinilosViewModel);
+        }
+
         // GET: VinilosController
         public ActionResult Index()
         {
