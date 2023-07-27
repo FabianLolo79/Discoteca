@@ -5,12 +5,52 @@
       "PackagePath": "staticwebassets\\WebApplication-Discoteca.bundle.scp.css"
     },
     {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\css\\carousel.css",
+      "PackagePath": "staticwebassets\\css\\carousel.css"
+    },
+    {
       "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\carp.jpg",
+      "PackagePath": "staticwebassets\\img\\carp.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\jairo.jpg",
+      "PackagePath": "staticwebassets\\img\\jairo.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\julio.jpg",
+      "PackagePath": "staticwebassets\\img\\julio.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\julio2.jpg",
+      "PackagePath": "staticwebassets\\img\\julio2.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\marta1.jpg",
+      "PackagePath": "staticwebassets\\img\\marta1.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\marta2.jpg",
+      "PackagePath": "staticwebassets\\img\\marta2.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\palito.jpg",
+      "PackagePath": "staticwebassets\\img\\palito.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\palito2.jpg",
+      "PackagePath": "staticwebassets\\img\\palito2.jpg"
+    },
+    {
+      "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\img\\pantera.jpg",
+      "PackagePath": "staticwebassets\\img\\pantera.jpg"
     },
     {
       "Id": "E:\\MuniCbaFullStack.NET-2023\\Nivel-Intermedio\\proyectoFinal\\Discoteca\\WebApplication-Discoteca\\wwwroot\\js\\site.js",
