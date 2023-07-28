@@ -4,13 +4,13 @@
     ViewData["Title"] = "Listado de vinilos";
 }
 
-<h2>Listado de Vinilos</h2>
+<h2 class="mx-3">Listado de Vinilos</h2>
 
-<p>
+<p class="mx-3">
     <a asp-action="Create">Create New</a>
 </p>
 
-<form action="/Vinilos/Buscar" method="post" class="row row-cols-lg-auto g-2 align-items-center">
+<form action="/Vinilos/Buscar" method="post" class="row row-cols-lg-auto g-2 align-items-center mx-3">
   <div class="col-6">
     <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
     <div class="input-group">
@@ -25,28 +25,28 @@
 <table class="table table-bordered table-hover table-general">
     <thead class="table-success">
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Id)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Titulo_disco)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Nombre_artista)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Ano)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Canciones)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Precio)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Estado)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.FechaAlta)
             </th>
             <th></th>
@@ -55,7 +55,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td class="table-warning">
+            <td class="table-warning text-center">
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td class="table-warning">
@@ -80,10 +80,10 @@
                 @Html.DisplayFor(modelItem => item.FechaAlta)
             </td>
             <td class="table-warning">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id  }, new {@class="btn btn-warning m-1 px-3 d-flex justify-content-center"})
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new {@class="btn btn-info d-flex justify-content-center"})
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id  }, new {@class="btn btn-warning m-1 px-3 d-flex justify-content-center btn-sm"})
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new {@class="btn btn-info d-flex justify-content-center  btn-sm"})
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id },
-                new {@class="btn btn-danger m-2 px-2 d-flex justify-content-center", onclick="borrarVinilo(this); return false;"})
+                new {@class="btn btn-danger m-2 px-2 d-flex justify-content-center btn-sm", onclick="borrarVinilo(this); return false;"})
             </td>
         </tr>
 }

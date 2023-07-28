@@ -21,3 +21,8 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+.hover:is(:hover) {
+    border-bottom: 2px solid red;
+}
+

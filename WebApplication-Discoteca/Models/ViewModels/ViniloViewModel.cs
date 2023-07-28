@@ -14,7 +14,7 @@ namespace WebApplication_Discoteca.Models.ViewModels
         private string estado;
         private DateTime fechaAlta;
 
-        [DisplayName("Id autogenerado")]
+        [DisplayName("Id")]
         public long Id { get => id; set => id = value; }
 
         [DisplayName("Título")]
